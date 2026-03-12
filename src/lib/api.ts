@@ -5,7 +5,7 @@ import axios from 'axios'
 const API_URL = (import.meta as any).env?.VITE_API_URL ?? 'https://benchgr-backend.vercel.app'
 
 export const api = axios.create({
-  baseURL: `${API_URL}/api`,
+  baseURL: API_URL ? `${API_URL.replace(/\/$/, '')}/api` : '/api',
   headers: { 'Content-Type': 'application/json' },
 })
 
