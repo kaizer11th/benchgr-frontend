@@ -2,10 +2,10 @@ import axios from 'axios'
 
 // On Vercel, frontend and backend share the same domain.
 // In local dev, set VITE_API_URL=http://localhost:8000
-const API_URL = (import.meta as any).env?.VITE_API_URL ?? 'https://benchgr-backend.vercel.app'
+const API_URL = (import.meta as any).env?.VITE_API_URL ?? ''
 
 export const api = axios.create({
-  baseURL: API_URL ? `${API_URL.replace(/\/$/, '')}/api` : '/api',
+  baseURL: `${API_URL}/api`,
   headers: { 'Content-Type': 'application/json' },
 })
 
